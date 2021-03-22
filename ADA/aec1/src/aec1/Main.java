@@ -1,7 +1,5 @@
 package aec1;
 
-import java.util.concurrent.TimeUnit;
-
 public class Main {
 
     public static void main(String[] args) {
@@ -10,7 +8,7 @@ public class Main {
         a2();
         System.out.println("end");
     }
-
+    // multiplicación a la russe
     public static void a1() {
         long start = System.nanoTime();
         for (int i = 2; i <= 1000000; i++) {
@@ -21,10 +19,10 @@ public class Main {
         long elapsedTime = System.nanoTime() - start;
         System.out.println("A1 seconds : " + formatTime(elapsedTime));
     }
-
+    // divide y vencerás
     public static void a2() {
         long start = System.nanoTime();
-        for (int i = 2; i <= 1000000; i++) {
+        for (int i = 2; i <= 100000; i++) {
             for (int e = 1; e <= 100; e++) {
                 int result = mDV(i);
             }
@@ -84,7 +82,7 @@ public class Main {
         } else if (arrayN.length == 6) {
             a = Integer.parseInt(arrayN[0] + arrayN[1] + arrayN[2]);
             b = Integer.parseInt(arrayN[3] + arrayN[4] + arrayN[5]);
-        } else if (arrayN.length == 6) {
+        } else if (arrayN.length == 7) {
             a = Integer.parseInt(arrayN[0] + arrayN[1] + arrayN[2]);
             b = Integer.parseInt(arrayN[3] + arrayN[4] + arrayN[5] + arrayN[6]);
         }
