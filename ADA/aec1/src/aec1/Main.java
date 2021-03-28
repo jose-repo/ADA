@@ -18,8 +18,10 @@ public class Main {
             for (int e = 1; e <= 100; e++) {
                 result = mA(i);
             }
-            if (i == 555555) {
+            if (i % 10000 == 0 || i == 10 || i == 100 || i == 1000 ) {
                 System.out.println(i + " x " + (i - 1) + " = " + result);
+                long elapsedTime = System.nanoTime() - start;
+                System.out.println("A1 - tras " + i + " iteraciones " + ". Tiempo: " + formatTime(elapsedTime));
             }
         }
         long elapsedTime = System.nanoTime() - start;
@@ -33,8 +35,10 @@ public class Main {
             for (int e = 1; e <= 100; e++) {
                 result = mDV(i);
             }
-            if (i == 555555) {
+            if (i % 10000 == 0 || i == 10 || i == 100 || i == 1000 ) {
                 System.out.println(i + " x " + (i - 1) + " = " + result);
+                long elapsedTime = System.nanoTime() - start;
+                System.out.println("A2 - tras " + i + " iteraciones " + ". Tiempo: " + formatTime(elapsedTime));
             }
         }
         long elapsedTime = System.nanoTime() - start;
