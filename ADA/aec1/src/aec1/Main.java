@@ -18,7 +18,7 @@ public class Main {
             for (int e = 1; e <= 100; e++) {
                 result = mA(i);
             }
-            if (i == 55555) {
+            if (i == 555555) {
                 System.out.println(i + " x " + (i - 1) + " = " + result);
             }
         }
@@ -33,7 +33,7 @@ public class Main {
             for (int e = 1; e <= 100; e++) {
                 result = mDV(i);
             }
-            if (i == 55555) {
+            if (i == 555555) {
                 System.out.println(i + " x " + (i - 1) + " = " + result);
             }
         }
@@ -82,20 +82,9 @@ public class Main {
         if (n == 0) {
             return 0;
         }
-        // para dividir los valores se utilizan
-        // string y array de string
+        // para dividir los valores se utilizan dos strings
         String strDigitsN = String.valueOf(n);
         String strDigitsN1 = String.valueOf(n - 1);
-
-        String[] arrayN = new String[strDigitsN.length()];
-        String[] arrayN1 = new String[strDigitsN1.length()];
-        // se pasa el string al array
-        for (int i = 0; i < strDigitsN.length(); i++) {
-            arrayN[i] = String.valueOf(strDigitsN.charAt(i));
-        }
-        for (int i = 0; i < strDigitsN1.length(); i++) {
-            arrayN1[i] = String.valueOf(strDigitsN1.charAt(i));
-        }
 
         // init variable
         int a = 0;
@@ -105,21 +94,21 @@ public class Main {
         // INICIALIZAR BLOQUE A y B -----------------------------
         String concatenateZero = "";
         // si el número es impar se rellena con 0 por la izquierda
-        if (arrayN.length %2 != 0) {
+        if (strDigitsN.length() %2 != 0) {
             concatenateZero = "0";
         }
-        int half = arrayN.length / 2;
+        int half = strDigitsN.length() / 2;
         String aStr = concatenateZero;
         String bStr = "";
         // primera mitad del número
         // ejemplo para 1122 coge el 11
         for (int i = 0; i < half; i++) {
-            aStr += arrayN[i];
+            aStr += Character.getNumericValue(strDigitsN.charAt(i));
         }
         // segunda mitad del número
         // ejemplo para 1122 coge el 22
-        for (int i = half; i < arrayN.length; i++) {
-            bStr += arrayN[i];
+        for (int i = half; i < strDigitsN.length(); i++) {
+            bStr += Character.getNumericValue(strDigitsN.charAt(i));
         }
         if (bStr.isEmpty()) {
             bStr = "0";
@@ -134,17 +123,17 @@ public class Main {
         // INICIALIZAR BLOQUE B y C -----------------------------
         concatenateZero = "";
         // si el número es impar se rellena con 0 por la izquierda
-        if (arrayN1.length %2 != 0) {
+        if (strDigitsN1.length() %2 != 0) {
             concatenateZero = "0";
         }
-        half = arrayN1.length / 2;
+        half = strDigitsN1.length() / 2;
         String cStr = concatenateZero;
         String dStr = "";
         for (int i = 0; i < half; i++) {
-            cStr += arrayN1[i];
+            cStr += Character.getNumericValue(strDigitsN1.charAt(i));
         }
-        for (int i = half; i < arrayN1.length; i++) {
-            dStr += arrayN1[i];
+        for (int i = half; i < strDigitsN1.length(); i++) {
+            dStr += Character.getNumericValue(strDigitsN1.charAt(i));
         }
         if (cStr.isEmpty()) {
             cStr = "0";
