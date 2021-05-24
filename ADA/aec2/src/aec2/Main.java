@@ -7,20 +7,25 @@ import java.util.Scanner;
 public class Main {
     private static final int origenFila = 0;
     private static final int origenColumna = 1;
-    private static final int destinoFila = 3;
+    private static final int destinoFila = 9;
     private static final int destinoColumna = 1;
     private static int count = 0;
     private static int mejorRutaCount = -1;
     private static String rutaActual = "";
     private static String mejorRuta = "";
     private static int[][] lab;
+    private static int[][] labOriginal;
 
     public static void main(String[] args) {
         leerFichero();
         for (int j = 0; j < lab.length; j++) {
             if (lab[origenFila][j] == 1) {
+                labOriginal[origenFila][j] = 0;
                 lab[origenFila][j] = 0;
-                algoritmo(lab, origenFila, origenColumna);
+                algoritmo(lab, origenFila, j);
+                lab = labOriginal;
+                count = 0;
+                rutaActual = "";
             }
         }
         System.out.println(mejorRuta);
@@ -30,9 +35,10 @@ public class Main {
      * leer el fichero desde la ruta
      */
     public static void leerFichero() {
-        int totalRow = 4;
-        int totalColumn = 4;
+        int totalRow = 10;
+        int totalColumn = 10;
         lab = new int[totalRow][totalColumn];
+        labOriginal = new int[totalRow][totalColumn];
         String path = Main.class.getResource("laberinto").getPath();
         File file = new File(path);
         Scanner scanner = null;
@@ -48,6 +54,7 @@ public class Main {
             char[] chars = scanner.nextLine().toCharArray();
             for (int i = 0; i < totalColumn && i < chars.length; i++) {
                 lab[row][i] = Character.getNumericValue(chars[i]);
+                labOriginal[row][i] = Character.getNumericValue(chars[i]);
             }
         }
     }
@@ -107,8 +114,6 @@ public class Main {
                 }
             }
         }
-
-        count = 1;
     }
 
     private static boolean destinoEncontrado(int i, int j, int count) {

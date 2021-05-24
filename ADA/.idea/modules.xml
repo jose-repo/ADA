@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ADA.iml" filepath="$PROJECT_DIR$/ADA.iml" />
-      <module fileurl="file://$PROJECT_DIR$/aec1/aec1.iml" filepath="$PROJECT_DIR$/aec1/aec1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/aec2/aec1.iml" filepath="$PROJECT_DIR$/aec2/aec1.iml" />
     </modules>
   </component>
 </project>
